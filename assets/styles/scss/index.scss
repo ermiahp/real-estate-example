@@ -1,0 +1,45 @@
+@use "colors";
+
+@mixin rtl($property, $ltr-value, $rtl-value) {
+    #{$property}: $ltr-value;
+  
+    [dir=rtl] & {
+      #{$property}: $rtl-value;
+    }
+  }
+
+$text-white: white;
+$normal-padding: 8%;
+
+.search-section {
+    height: 100vh;
+    background-image: url("/assets/imgs/search-section/search-section-bg.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    color: $text-white;
+
+    &__main-content {
+        height: calc(100% - 42px);
+        width: 86%;
+        background: -o-linear-gradient(89.13deg, colors.$primary 0.69%, rgba(81, 38, 174, 0.4736) 100.48%, rgba(38, 92, 174, 0.0102906) 100.49%, rgba(195, 195, 196, 0.00520833) 100.5%, #76A6EF 100.51%);
+        background: linear-gradient(0.87deg, colors.$primary 0.69%, rgba(81, 38, 174, 0.4736) 100.48%, rgba(38, 92, 174, 0.0102906) 100.49%, rgba(195, 195, 196, 0.00520833) 100.5%, #76A6EF 100.51%);
+        padding-top: 42px;
+        padding-left: $normal-padding;
+        padding-right: $normal-padding;
+        color: $text-white;
+        @include rtl(padding-right, 8%, 20%);
+
+    }
+
+    &__nav-bar{
+        display: flex;
+        align-items: center;
+        color: $text-white;
+
+        &-img {
+            width: 40%;
+        }
+    }
+ }
